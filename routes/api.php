@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\v2\RegisterController;
+use App\Http\Controllers\v2\LoginController;
 use App\Http\Controllers\v1\ArticleController;
 use App\Http\Controllers\v1\UploadController;
 use App\Http\Controllers\v1\UserController;
@@ -22,6 +24,14 @@ Route::group(['prefix' => 'v1'], function ($router) {
     $router->resource('articles', ArticleController::class);
     $router->get('upload', [UploadController::class, 'index']);
     $router->post('upload', [UploadController::class, 'store']);
+});
+
+Route::group(['prefix' => 'v2'], function ($router) {
+    $router->get('register', [RegisterController::class, 'index']);
+    $router->post('register', [RegisterController::class, 'register']);
+
+    $router->get('login', [LoginController::class, 'index']);
+    $router->post('login', [LoginController::class, 'login']);
 });
 
 // Route::group([], function ($router) {
