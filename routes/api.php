@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\v1\ArticleController;
+use App\Http\Controllers\v1\UploadController;
 use App\Http\Controllers\v1\UserController;
 // use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => 'v1'], function ($router) {
     $router->get('users', [UserController::class, 'index']);
     $router->resource('articles', ArticleController::class);
+    $router->get('upload', [UploadController::class, 'index']);
+    $router->post('upload', [UploadController::class, 'store']);
 });
 
 // Route::group([], function ($router) {
