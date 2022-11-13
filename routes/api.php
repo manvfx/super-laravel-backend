@@ -5,6 +5,7 @@ use App\Http\Controllers\v2\LoginController;
 use App\Http\Controllers\v1\ArticleController;
 use App\Http\Controllers\v1\UploadController;
 use App\Http\Controllers\v1\UserController;
+use App\Http\Controllers\v2\HomeController;
 // use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,7 @@ Route::group(['prefix' => 'v2'], function ($router) {
 
     $router->get('login', [LoginController::class, 'index']);
     $router->post('login', [LoginController::class, 'login']);
+    $router->get('email', [HomeController::class, 'email']);
 });
 
 // Route::group([], function ($router) {
